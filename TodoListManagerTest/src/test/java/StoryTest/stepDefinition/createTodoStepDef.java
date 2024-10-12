@@ -5,13 +5,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.json.JSONObject;
-import org.junit.jupiter.api.Assertions;
-import org.skyscreamer.jsonassert.JSONAssert;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TodosStepDefinition {
+public class createTodoStepDef {
 
     private final String json = "application/json";
     private final String xml = "application/xml";
@@ -20,7 +17,9 @@ public class TodosStepDefinition {
     private String jsonString;
 
 
-    // --------------- Feature: Add a new todos -------------//
+    //
+    // Create todo
+    //
 
     @Given("I have a todo that does not exist and wish to add one")
     public void i_have_a_todo_that_does_not_exist_and_wish_to_add_one() {
@@ -113,7 +112,6 @@ public class TodosStepDefinition {
         int statusCode = res.getStatusCode();
         assertEquals(400,statusCode);
     }
-
 
 
 }
