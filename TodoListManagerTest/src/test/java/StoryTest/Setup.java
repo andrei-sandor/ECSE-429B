@@ -30,7 +30,7 @@ public class Setup {
     public void InitializeServerBefore() {
         try {
             pb.start();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (IOException | InterruptedException e) {
             System.out.println("No server");
         }

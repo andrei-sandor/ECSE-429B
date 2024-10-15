@@ -9,7 +9,7 @@ import io.restassured.response.Response;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class getTodoStepDef {
+public class f2getTodoStepDef {
     private final String json = "application/json";
     private final String xml = "application/xml";
     private Response res;

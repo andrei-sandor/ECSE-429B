@@ -8,7 +8,7 @@ import io.restassured.response.Response;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class createTodoStepDef {
+public class f1createTodoStepDef {
 
     private final String json = "application/json";
     private final String xml = "application/xml";
