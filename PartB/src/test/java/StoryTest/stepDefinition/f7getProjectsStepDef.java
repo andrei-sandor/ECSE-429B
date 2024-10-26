@@ -56,6 +56,10 @@ public class f7getProjectsStepDef {
         res = RestAssured.given()
                 .header("Accept", json)
                 .get("http://localhost:4567/projects");
+
+        // This is used to mention which user story is executed in random mode
+        System.out.println("-------------------------- Executing f7---------------------------------------------------");
+        //
     }
 
     @When("I try to retrieve all projects")

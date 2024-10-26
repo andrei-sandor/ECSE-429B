@@ -46,6 +46,10 @@ public class f9updateProjectStepDef {
                 .header("Content-Type", json)
                 .body(jsonString)
                 .put("http://localhost:4567/projects/" + projectID);
+
+        // This is used to mention which user story is executed in random mode
+        System.out.println("-------------------------- Executing f9---------------------------------------------------");
+        //
     }
 
     @When("I update the project with ID {int} with title {string}")

@@ -28,7 +28,9 @@ public class f3deleteTodoStepDef {
                 .header("Content-Type",json)
                 .delete("http://localhost:4567/todos/" + id);
 
-
+        // This is used to mention which user story is executed in random mode
+        System.out.println("-------------------------- Executing f3---------------------------------------------------");
+        //
     }
 
     @Then("the status code 200 will be received for deletion")

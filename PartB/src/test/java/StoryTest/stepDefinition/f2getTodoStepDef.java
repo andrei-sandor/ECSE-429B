@@ -28,7 +28,9 @@ public class f2getTodoStepDef {
                 .header("Content-Type",json)
                 .get("http://localhost:4567/todos/" + string);
 
-
+        // This is used to mention which user story is executed in random mode
+        System.out.println("-------------------------- Executing f2---------------------------------------------------");
+        //
     }
 
     @Then("the status code 200 will be received for this case")

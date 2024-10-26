@@ -39,6 +39,10 @@ public class f6createProjectStepDef {
                 .header("Content-Type", json)
                 .body(jsonString)
                 .post("http://localhost:4567/projects");
+
+        // This is used to mention which user story is executed in random mode
+        System.out.println("-------------------------- Executing f6---------------------------------------------------");
+        //
     }
 
     @When("I create a new project with title {string}, completed {string}, active {string}, and description {string}")

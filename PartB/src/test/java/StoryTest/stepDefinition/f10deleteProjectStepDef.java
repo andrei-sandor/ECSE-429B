@@ -10,7 +10,7 @@ import org.testng.Assert;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.*;
 import static org.testng.Assert.*;
 
 public class f10deleteProjectStepDef {
@@ -62,7 +62,7 @@ public class f10deleteProjectStepDef {
                     .header("Accept", "application/json")
                     .delete("http://localhost:4567/projects/" + projectID + "/tasks/" + taskID);
 
-            Assert.assertEquals(deleteResponse.getStatusCode(), 200, "Failed to delete task relationship with ID " + taskID + " from project with ID " + projectID);
+            assertEquals(deleteResponse.getStatusCode(), 200, "Failed to delete task relationship with ID " + taskID + " from project with ID " + projectID);
         }
     }
 
@@ -86,6 +86,10 @@ public class f10deleteProjectStepDef {
         res = RestAssured.given()
                 .header("Content-Type", json)
                 .delete("http://localhost:4567/projects/" + projectID);
+
+        // This is used to mention which user story is executed in random mode
+        System.out.println("-------------------------- Executing f10---------------------------------------------------");
+        //
     }
 
     @Then("the status code {int} appears")
