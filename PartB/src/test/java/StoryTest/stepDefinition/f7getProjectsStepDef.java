@@ -6,8 +6,10 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class f7getProjectsStepDef {
 
@@ -25,7 +27,7 @@ public class f7getProjectsStepDef {
                 .header("Accept", json)
                 .get("http://localhost:4567/projects/1");
 
-        assertEquals(200, statusCode);
+        assertEquals(200, res.getStatusCode());
     }
 
     @Given("there are no projects in the database")
@@ -63,8 +65,8 @@ public class f7getProjectsStepDef {
                 .get("http://localhost:4567" + endpoint);
     }
 
-    @Then("the status code {int} is returned")
-    public void the_status_code_is_returned(int expectedStatusCode) {
+    @Then("the status code {int} is returned for this request")
+    public void the_status_code_is_returned_for_this_request(int expectedStatusCode) {
         int statusCode = res.getStatusCode();
         assertEquals(expectedStatusCode, statusCode);
     }
@@ -73,7 +75,7 @@ public class f7getProjectsStepDef {
     public void the_response_contains_a_non_empty_list_of_projects() {
         List<Map<String, Object>> projects = res.getBody().jsonPath().getList("projects");
 
-        assertTrue(!projects.isEmpty(), "Expected a non-empty list of projects, but found none.");
+        assertFalse(projects.isEmpty(), "Expected a non-empty list of projects, but found none.");
 
         for (Map<String, Object> project : projects) {
             assertTrue(project.containsKey("id"), "Project is missing 'id' field");

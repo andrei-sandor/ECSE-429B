@@ -32,9 +32,9 @@ public class f6createProjectStepDef {
                 .post("http://localhost:4567/projects");
     }
 
-    @When("I create a new project with title {string} and completed {string}")
-    public void i_create_a_new_project_with_title_and_completed(String title, String completed) {
-        jsonString = "{" + "\"title\": \"" + title + "\"," + "\"completed\": " + completed + "}";
+    @When("I create a new project with title {string} and completed {string} as a string")
+    public void i_create_a_new_project_with_title_and_completed_as_a_string(String title, String completed) {
+        jsonString = "{" + "\"title\": \"" + title + "\"," + "\"completed\": \"" + completed + "\"}";
         res = RestAssured.given()
                 .header("Content-Type", json)
                 .body(jsonString)
@@ -63,12 +63,13 @@ public class f6createProjectStepDef {
 
     @Then("the error message {string} is returned")
     public void the_error_message_is_returned(String expectedErrorMessage) {
-        String actualMessage = res.getBody().jsonPath().getString("errorMessage");
-        assertEquals(expectedErrorMessage, actualMessage);
+        String actualErrorMessage = (String) res.getBody().jsonPath().getList("errorMessages").get(0);
+
+        assertEquals(expectedErrorMessage, actualErrorMessage);
     }
 
     @Then("a new project is created with title {string}")
-    public void a_new_project_is_created_with_title_only(String title) {
+    public void a_new_project_is_created_with_title(String title) {
         res2 = RestAssured.given()
                 .header("Accept", json)
                 .get("http://localhost:4567/projects/2");

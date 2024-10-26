@@ -10,8 +10,8 @@ Feature: Create Project
       And a new project is created with title <title>, completed <completed>, active <active>, and description <description>
 
       Examples:
-        | title        | completed | active | description     |
-        | "Project A"  | false     | true   | "Deliverable A" |
+        | title       | completed | active | description     |
+        | "Project A" | "false"   | "true" | "Deliverable A" |
 
     # Alternate flow
     Scenario Outline: Create a new project with title only
@@ -27,14 +27,10 @@ Feature: Create Project
     # Error flow
     Scenario Outline: Create a new project with string instead of boolean for completed
       Given I do not have a project and want to create one
-      When I create a new project with title <title> and completed <completed>
+      When I create a new project with title <title> and completed <completed> as a string
       Then the status code 400 is returned
       And the error message "Failed Validation: completed should be BOOLEAN" is returned
 
       Examples:
-        | title        | completed |
-        | "Project C"  | "false"   |
-
-
-
-
+        | title       | completed |
+        | "Project C" | "false"   |
