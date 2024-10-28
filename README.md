@@ -9,3 +9,6 @@ To run the feature files in random order
      ``` mvn exec:java -Dexec.classpathScope=test -Dexec.mainClass=io.cucumber.core.cli.Main -Dexec.args="src/test/resources --glue StoryTest --order random:12" ```
 
   4. Change the random number (i.e seed) to try different orders.
+
+
+Feature files can be found here: https://github.com/andrei-sandor/ECSE-429B/tree/main/PartB/src/test/resources/Features
