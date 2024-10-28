@@ -12,3 +12,5 @@ To run the feature files in random order
 
 
 Feature files can be found here: https://github.com/andrei-sandor/ECSE-429B/tree/main/PartB/src/test/resources/Features
+
+Step definitions related files: https://github.com/andrei-sandor/ECSE-429B/tree/main/PartB/src/test/java/StoryTest
