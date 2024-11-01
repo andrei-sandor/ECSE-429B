@@ -28,6 +28,10 @@ public class f10deleteProjectStepDef {
                 .header("Accept", json)
                 .get("http://localhost:4567/projects/" + projectID);
         assertEquals(200, res.getStatusCode(), "Expected project to exist.");
+
+        // This is used to mention which scenario is executed in random mode
+        System.out.println("-------------------------- Executing f10-normal---------------------------------------------------");
+        //
     }
 
     @Given("a project with ID {int} exists and has tasks")
@@ -36,6 +40,10 @@ public class f10deleteProjectStepDef {
                 .header("Accept", json)
                 .get("http://localhost:4567/projects/" + projectID + "/tasks");
         assertEquals(200, res.getStatusCode(), "Expected project with tasks to exist.");
+
+        // This is used to mention which scenario is executed in random mode
+        System.out.println("-------------------------- Executing f10-alternate---------------------------------------------------");
+        //
     }
 
     @Given("no project with ID {int} is stored in the database")
@@ -44,6 +52,10 @@ public class f10deleteProjectStepDef {
                 .header("Accept", json)
                 .get("http://localhost:4567/projects/" + projectID);
         assertEquals(404, res.getStatusCode(), "Expected project to not exist.");
+
+        // This is used to mention which scenario is executed in random mode
+        System.out.println("-------------------------- Executing f10-error---------------------------------------------------");
+        //
     }
 
     @Given("the project with ID {int} has no associated tasks")
@@ -87,9 +99,6 @@ public class f10deleteProjectStepDef {
                 .header("Content-Type", json)
                 .delete("http://localhost:4567/projects/" + projectID);
 
-        // This is used to mention which user story is executed in random mode
-        System.out.println("-------------------------- Executing f10---------------------------------------------------");
-        //
     }
 
     @Then("the status code {int} appears")
